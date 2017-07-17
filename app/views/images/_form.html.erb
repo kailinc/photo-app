@@ -1,4 +1,4 @@
-<%= form_for @image, :html => { :class => "form-horizontal image" } do |f| %>
+<%= form_for @image, :html => { multipart: true, :class => "form-horizontal image" } do |f| %>
 
   <% if @image.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -25,16 +25,11 @@
   <div class="form-group">
     <%= f.label :picture, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :picture, :class => 'form-control' %>
+      <!-- makes the field a field to upload pictures  -->
+      <!-- only accepts images, gifs, png -->
+      <%= f.file_field :picture, accept: 'image/jpeg, image/gif, image/png', :class => 'form-control' %>
     </div>
     <%=f.error_span(:picture) %>
-  </div>
-  <div class="form-group">
-    <%= f.label :user_id, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :user_id, :class => 'form-control' %>
-    </div>
-    <%=f.error_span(:user_id) %>
   </div>
 
   <div class="form-group">
