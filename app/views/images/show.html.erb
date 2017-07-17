@@ -8,9 +8,7 @@
   <dd><%= @image.name %></dd>
   <dt></dt>
   <!-- show the image if it is an image -->
-  <dd><%=image_tag @image.picture.url if @image.picture? =%></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @image.user_id %></dd>
+  <dd><%=image_tag(@image.picture.url, size: "300x300") if @image.picture? =%></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
